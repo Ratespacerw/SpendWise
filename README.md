@@ -1,0 +1,1 @@
+A full-stack Business Intelligence and Expense Tracking application built with the MERN stack. Designed to help users track daily expenses, categorize spending, and visualize financial trends over time.
