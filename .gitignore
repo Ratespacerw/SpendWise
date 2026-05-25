@@ -1,0 +1,12 @@
+# Ignore Node Modules
+node_modules/
+server/node_modules/
+client/node_modules/
+
+# Ignore Secrets and Passwords
+.env
+server/.env
+client/.env
+
+# Ignore system files
+.DS_Store
