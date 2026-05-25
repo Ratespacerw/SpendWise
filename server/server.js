@@ -21,7 +21,12 @@ app.get('/', (req, res) => {
   res.send("FinTrack Server is Running!");
 });
 
- 
-const PORT = process.env.PORT || 5000;
 app.use('/api/transactions', transactionRoutes);
-app.listen(PORT, () => console.log(`🚀 Server on port ${PORT}`));
+
+if (process.env.NODE_ENV !== 'production') {
+    const PORT = process.env.PORT || 5000;
+    app.listen(PORT, () => console.log(`🚀 Server on port ${PORT}`));
+}
+
+// Always export the app so Vercel can use it
+module.exports = app;

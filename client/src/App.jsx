@@ -4,7 +4,10 @@ import { Trash2, PiggyBank, CheckCircle } from 'lucide-react';
 import { AreaChart, Area, XAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import './App.css';
 
-const API_URL = 'http://localhost:5000/api/transactions';
+// If on laptop, use localhost. If on Vercel, use the relative path.
+const API_URL = import.meta.env.MODE === 'development' 
+  ? 'http://localhost:5000/api/transactions' 
+  : '/api/transactions';
 
 const CATEGORIES = [
   "Rent", "Food", "Transport", "Utilities", "Entertainment", 
