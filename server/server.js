@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const transactionRoutes = require('./routes/transactions');
+const authRoutes = require('./routes/auth');
 
 dotenv.config();
 const app = express();
@@ -22,6 +23,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/transactions', transactionRoutes);
+app.use('/api/auth', authRoutes);
 
 if (process.env.NODE_ENV !== 'production') {
     const PORT = process.env.PORT || 5000;
