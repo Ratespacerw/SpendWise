@@ -767,12 +767,12 @@ function App() {
                     <p style={{ fontSize: '13px', lineHeight: '1.4' }}>
                       {insights.highestIncreaseCat !== "None" && (
                         <span style={{ display: 'block', color: '#dc2626' }}>
-                          📈 Largest Increase: <strong>{insights.highestIncreaseCat}</strong> (+₹{insights.maxIncreaseDiff.toLocaleString()})
+                          Largest Increase: <strong>{insights.highestIncreaseCat}</strong> (+₹{insights.maxIncreaseDiff.toLocaleString()})
                         </span>
                       )}
                       {insights.highestDecreaseCat !== "None" && (
                         <span style={{ display: 'block', color: '#16a34a', marginTop: '4px' }}>
-                          📉 Largest Decrease: <strong>{insights.highestDecreaseCat}</strong> (-₹{Math.abs(insights.maxDecreaseDiff).toLocaleString()})
+                          Largest Decrease: <strong>{insights.highestDecreaseCat}</strong> (-₹{Math.abs(insights.maxDecreaseDiff).toLocaleString()})
                         </span>
                       )}
                       {insights.highestIncreaseCat === "None" && insights.highestDecreaseCat === "None" && (
@@ -855,12 +855,12 @@ function App() {
                     <p style={{ fontSize: '13px', lineHeight: '1.4' }}>
                       {insights.highestIncreaseYearCat !== "None" && (
                         <span style={{ display: 'block', color: '#dc2626' }}>
-                          📈 Largest Increase: <strong>{insights.highestIncreaseYearCat}</strong> (+₹{insights.maxIncreaseYearDiff.toLocaleString()})
+                          Largest Increase: <strong>{insights.highestIncreaseYearCat}</strong> (+₹{insights.maxIncreaseYearDiff.toLocaleString()})
                         </span>
                       )}
                       {insights.highestDecreaseYearCat !== "None" && (
                         <span style={{ display: 'block', color: '#16a34a', marginTop: '4px' }}>
-                          📉 Largest Decrease: <strong>{insights.highestDecreaseYearCat}</strong> (-₹{Math.abs(insights.maxDecreaseYearDiff).toLocaleString()})
+                          Largest Decrease: <strong>{insights.highestDecreaseYearCat}</strong> (-₹{Math.abs(insights.maxDecreaseYearDiff).toLocaleString()})
                         </span>
                       )}
                       {insights.highestIncreaseYearCat === "None" && insights.highestDecreaseYearCat === "None" && (
