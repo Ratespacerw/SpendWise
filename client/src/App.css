@@ -372,6 +372,11 @@ input:focus, select:focus {
   gap: 8px;
 }
 
+.auth-btn:disabled {
+  filter: brightness(70%);
+  cursor: not-allowed;
+}
+
 /* ==========================================
    TABS AND NAVIGATION
    ========================================== */

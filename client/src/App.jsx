@@ -27,6 +27,7 @@ function App() {
   const [authName, setAuthName] = useState('');
   const [authEmail, setAuthEmail] = useState('');
   const [authPassword, setAuthPassword] = useState('');
+  const [isAuthLoading, setIsAuthLoading] = useState(false);
 
   // --- NAVIGATION TAB STATE ---
   const [activeTab, setActiveTab] = useState('Dashboard'); // 'Dashboard' or 'History'
@@ -56,6 +57,7 @@ function App() {
   // --- AUTHENTICATION FUNCTIONS ---
   const handleAuth = async (e) => {
     e.preventDefault();
+    setIsAuthLoading(true);
     try {
       const endpoint = isLoginView ? '/login' : '/register';
       const payload = isLoginView 
@@ -74,6 +76,8 @@ function App() {
       setAuthPassword('');
     } catch (err) {
       alert(err.response?.data?.message || "Authentication Failed");
+    } finally {
+      setIsAuthLoading(false);
     }
   };
 
@@ -467,7 +471,7 @@ function App() {
               <label>PASSWORD</label>
               <input type="password" required value={authPassword} onChange={e => setAuthPassword(e.target.value)} />
             </div>
-            <button type="submit" className="btn-save auth-btn">
+            <button type="submit" className="btn-save auth-btn" disabled={isAuthLoading}>
               <Lock size={18} /> {isLoginView ? 'Login securely' : 'Sign Up'}
             </button>
           </form>
@@ -766,15 +770,15 @@ function App() {
                     <h5>Largest Category Shift</h5>
                     <p style={{ fontSize: '13px', lineHeight: '1.4' }}>
                       {insights.highestIncreaseCat !== "None" && (
-                        <span style={{ display: 'block', color: '#dc2626' }}>
-                          Largest Increase: <strong>{insights.highestIncreaseCat}</strong> (+₹{insights.maxIncreaseDiff.toLocaleString()})
-                        </span>
-                      )}
-                      {insights.highestDecreaseCat !== "None" && (
-                        <span style={{ display: 'block', color: '#16a34a', marginTop: '4px' }}>
-                          Largest Decrease: <strong>{insights.highestDecreaseCat}</strong> (-₹{Math.abs(insights.maxDecreaseDiff).toLocaleString()})
-                        </span>
-                      )}
+                      <span style={{ display: 'block', color: '#dc2626' }}>
+                        Largest Increase: <strong>{insights.highestIncreaseCat}</strong> (+₹{insights.maxIncreaseDiff.toLocaleString()})
+                      </span>
+                    )}
+                    {insights.highestDecreaseCat !== "None" && (
+                      <span style={{ display: 'block', color: '#16a34a', marginTop: '4px' }}>
+                        Largest Decrease: <strong>{insights.highestDecreaseCat}</strong> (-₹{Math.abs(insights.maxDecreaseDiff).toLocaleString()})
+                      </span>
+                    )}
                       {insights.highestIncreaseCat === "None" && insights.highestDecreaseCat === "None" && (
                         "No comparative shifts found."
                       )}
@@ -854,15 +858,15 @@ function App() {
                     <h5>Largest Category Shift (Yearly)</h5>
                     <p style={{ fontSize: '13px', lineHeight: '1.4' }}>
                       {insights.highestIncreaseYearCat !== "None" && (
-                        <span style={{ display: 'block', color: '#dc2626' }}>
-                          Largest Increase: <strong>{insights.highestIncreaseYearCat}</strong> (+₹{insights.maxIncreaseYearDiff.toLocaleString()})
-                        </span>
-                      )}
-                      {insights.highestDecreaseYearCat !== "None" && (
-                        <span style={{ display: 'block', color: '#16a34a', marginTop: '4px' }}>
-                          Largest Decrease: <strong>{insights.highestDecreaseYearCat}</strong> (-₹{Math.abs(insights.maxDecreaseYearDiff).toLocaleString()})
-                        </span>
-                      )}
+                      <span style={{ display: 'block', color: '#dc2626' }}>
+                        Largest Increase: <strong>{insights.highestIncreaseYearCat}</strong> (+₹{insights.maxIncreaseYearDiff.toLocaleString()})
+                      </span>
+                    )}
+                    {insights.highestDecreaseYearCat !== "None" && (
+                      <span style={{ display: 'block', color: '#16a34a', marginTop: '4px' }}>
+                        Largest Decrease: <strong>{insights.highestDecreaseYearCat}</strong> (-₹{Math.abs(insights.maxDecreaseYearDiff).toLocaleString()})
+                      </span>
+                    )}
                       {insights.highestIncreaseYearCat === "None" && insights.highestDecreaseYearCat === "None" && (
                         "No comparative shifts found."
                       )}
