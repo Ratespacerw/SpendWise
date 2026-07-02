@@ -772,7 +772,7 @@ function App() {
                       )}
                       {insights.highestDecreaseCat !== "None" && (
                         <span style={{ display: 'block', color: '#16a34a', marginTop: '4px' }}>
-                          🔻 Largest Decrease: <strong>{insights.highestDecreaseCat}</strong> (-₹{Math.abs(insights.maxDecreaseDiff).toLocaleString()})
+                          <span style={{ color: '#16a34a' }}>🔻</span> Largest Decrease: <strong>{insights.highestDecreaseCat}</strong> (₹{insights.maxDecreaseDiff.toLocaleString()})
                         </span>
                       )}
                       {insights.highestIncreaseCat === "None" && insights.highestDecreaseCat === "None" && (
@@ -860,7 +860,7 @@ function App() {
                       )}
                       {insights.highestDecreaseYearCat !== "None" && (
                         <span style={{ display: 'block', color: '#16a34a', marginTop: '4px' }}>
-                          🔻 Largest Decrease: <strong>{insights.highestDecreaseYearCat}</strong> (-₹{Math.abs(insights.maxDecreaseYearDiff).toLocaleString()})
+                          <span style={{ color: '#16a34a' }}>🔻</span> Largest Decrease: <strong>{insights.highestDecreaseYearCat}</strong> (₹{insights.maxDecreaseYearDiff.toLocaleString()})
                         </span>
                       )}
                       {insights.highestIncreaseYearCat === "None" && insights.highestDecreaseYearCat === "None" && (
