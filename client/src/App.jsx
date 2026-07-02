@@ -783,7 +783,7 @@ function App() {
 
                   {/* Top 5 Categories spending breakdown */}
                   <div className="insight-item" style={{ gridColumn: 'span 2' }}>
-                    <h5>Monthly Spending by Category <br />(Top 5)</h5>
+                    <h5>Monthly Spending by Category (Top 5)</h5>
                     {insights.sortedCategories.length > 0 ? (
                       <ul className="subcat-list">
                         {insights.sortedCategories.map(([cat, amt]) => (
